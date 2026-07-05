@@ -32,6 +32,28 @@ html, body {
 }
 #wallpaper.ready { opacity: 1; }
 
+#quicklinks {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  display: flex;
+  gap: 24px;
+  z-index: 2;
+}
+
+#quicklinks a {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--snow);
+  opacity: 0.88;
+  text-shadow: 0 1px 8px rgba(5, 32, 23, 0.25);
+}
+
+#quicklinks a:hover { opacity: 1; text-decoration: underline; }
+
+body.light #quicklinks a { color: var(--pitch); text-shadow: none; }
+
 main {
   position: relative;
   height: 100%;
