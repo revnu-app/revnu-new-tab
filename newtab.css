@@ -54,6 +54,77 @@ html, body {
 
 body.light #quicklinks a { color: var(--pitch); text-shadow: none; }
 
+#quicklinks { align-items: center; }
+
+#apps-btn {
+  border: 0;
+  background: transparent;
+  color: var(--snow);
+  opacity: 0.88;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+#apps-btn:hover { opacity: 1; background: rgba(254, 254, 254, 0.14); }
+body.light #apps-btn { color: var(--pitch); }
+body.light #apps-btn:hover { background: rgba(5, 32, 23, 0.08); }
+
+#account {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--canopy);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+#account img { width: 20px; height: 20px; object-fit: contain; filter: brightness(0) invert(1); }
+#account:hover { outline: 4px solid rgba(254, 254, 254, 0.18); }
+body.light #account:hover { outline-color: rgba(5, 32, 23, 0.1); }
+
+#apps-panel {
+  position: fixed;
+  top: 62px;
+  right: 24px;
+  z-index: 3;
+  width: 320px;
+  padding: 18px;
+  background: var(--snow);
+  border-radius: 18px;
+  box-shadow: 0 14px 44px rgba(5, 32, 23, 0.35);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+#apps-panel[hidden] { display: none; }
+
+#apps-panel a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 4px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--pitch);
+}
+#apps-panel a:hover { background: var(--cloud); }
+
+#apps-panel a span {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 18px;
+}
+
 main {
   position: relative;
   height: 100%;

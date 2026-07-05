@@ -93,3 +93,17 @@ document.getElementById('search').addEventListener('submit', (e) => {
 });
 
 document.getElementById('q').focus();
+
+// Apps launcher dropdown
+const appsBtn = document.getElementById('apps-btn');
+const appsPanel = document.getElementById('apps-panel');
+appsBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  appsPanel.hidden = !appsPanel.hidden;
+});
+document.addEventListener('click', (e) => {
+  if (!appsPanel.hidden && !appsPanel.contains(e.target)) appsPanel.hidden = true;
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') appsPanel.hidden = true;
+});

@@ -13,7 +13,25 @@
   <nav id="quicklinks">
     <a href="https://mail.google.com">Gmail</a>
     <a href="https://www.google.com/imghp">Images</a>
+    <button id="apps-btn" title="Google apps" aria-label="Google apps">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="20" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="20" cy="12" r="2"/><circle cx="4" cy="20" r="2"/><circle cx="12" cy="20" r="2"/><circle cx="20" cy="20" r="2"/></svg>
+    </button>
+    <a id="account" href="https://myaccount.google.com" title="Google Account">
+      <img src="assets/clover.png" alt="Account">
+    </a>
   </nav>
+
+  <div id="apps-panel" hidden>
+    <a href="https://www.google.com"><span style="background:#4285F4">S</span>Search</a>
+    <a href="https://mail.google.com"><span style="background:#EA4335">M</span>Gmail</a>
+    <a href="https://drive.google.com"><span style="background:#FBBC04">D</span>Drive</a>
+    <a href="https://docs.google.com"><span style="background:#4285F4">D</span>Docs</a>
+    <a href="https://calendar.google.com"><span style="background:#1967D2">C</span>Calendar</a>
+    <a href="https://www.youtube.com"><span style="background:#FF0000">Y</span>YouTube</a>
+    <a href="https://maps.google.com"><span style="background:#34A853">M</span>Maps</a>
+    <a href="https://photos.google.com"><span style="background:#EA4335">P</span>Photos</a>
+    <a href="https://translate.google.com"><span style="background:#4285F4">T</span>Translate</a>
+  </div>
 
   <main>
     <div id="clock">
