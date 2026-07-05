@@ -4,7 +4,7 @@
 
 [revnu.com](https://revnu.com) · [Chrome extension] · Manifest V3 · No tracking, no accounts, works offline
 
-Chrome extension that replaces the new tab page with a Revnu-branded one: a clock, a search bar wired to your default search engine, and a rotating set of Revnu wallpapers. Every new tab advances through a shuffled cycle, so you see all nine wallpapers before any repeat.
+Chrome extension that replaces the new tab page with a Revnu-branded one: a clock, a search bar wired to your default search engine, and a rotating set of Revnu wallpapers. Every new tab advances through a shuffled cycle, so you see all 24 wallpapers before any repeat.
 
 ## Install
 
@@ -15,7 +15,7 @@ Chrome extension that replaces the new tab page with a Revnu-branded one: a cloc
 
 ## Wallpapers
 
-Nine wallpapers live in `wallpapers/`. Six are exact brand compositions rendered from the real assets in `revnu-assets` (Canopy, Moss, Undergrowth, Sprout, Terracotta, the clover, the lockup, Puffy). Three are AI-generated abstract backgrounds in the brand palette (Flux 1.1 Pro Ultra via Replicate).
+24 wallpapers live in `wallpapers/`. Twelve are exact brand compositions rendered from the real assets in `revnu-assets` (Canopy, Moss, Undergrowth, Sprout, Terracotta, the clover, the lockup, Puffy). The rest are AI-generated in the brand palette (Flux 1.1 Pro Ultra and GPT-Image-2 via Replicate).
 
 | File | Look |
 |---|---|
