@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,700;9..40,800;9..40,900;9..40,1000&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --canopy: #1C9F4C;
+    --sprout: #34C281;
+    --moss: #146024;
+    --undergrowth: #052017;
+    --pitch: #171717;
+    --cloud: #F0F0F0;
+    --snow: #FEFEFE;
+    --terracotta: #C65500;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 2560px; height: 1440px; overflow: hidden; }
+  body { font-family: 'DM Sans', sans-serif; position: relative; }
+
+  .clover {
+    position: absolute;
+    -webkit-mask-image: url(clover.png);
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-image: url(clover.png);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+  .lockup {
+    position: absolute;
+    -webkit-mask-image: url(logo-lockup.png);
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url(logo-lockup.png);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    aspect-ratio: 4800 / 964;
+  }
+  .wordmark-mask {
+    position: absolute;
+    -webkit-mask-image: url(wordmark.png);
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url(wordmark.png);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+  }
+  .mono {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .grain {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.04;
+  }
+
+  /* every design lives in a .wp; JS shows the one matching the hash */
+  .wp { position: absolute; inset: 0; display: none; }
+  body[data-wp="wp1"] #wp1, body[data-wp="wp2"] #wp2, body[data-wp="wp3"] #wp3,
+  body[data-wp="wp4"] #wp4, body[data-wp="wp5"] #wp5, body[data-wp="wp6"] #wp6 { display: block; }
+
+  /* ---- WP1: dark bleed. Undergrowth, tone-on-tone Moss clover + Canopy peek ---- */
+  #wp1 { background: var(--undergrowth); }
+  #wp1 .big { width: 2000px; height: 2000px; left: -650px; bottom: -750px; background: var(--moss); opacity: 0.55; transform: rotate(-12deg); }
+  #wp1 .peek { width: 1100px; height: 1100px; right: -380px; top: -420px; background: var(--canopy); opacity: 0.9; transform: rotate(24deg); }
+  #wp1 .tag { position: absolute; right: 72px; bottom: 60px; color: var(--terracotta); font-size: 30px; }
+  #wp1 .lockup { left: 80px; top: 72px; width: 300px; background: var(--snow); opacity: 0.92; }
+
+  /* ---- WP2: snow banner. Big Canopy clover bleeding left, tagline bottom right ---- */
+  #wp2 { background: var(--snow); }
+  #wp2 .big { width: 1750px; height: 1750px; left: -640px; top: -160px; background: var(--canopy); }
+  #wp2 .corner { width: 900px; height: 900px; right: -340px; bottom: -420px; background: var(--sprout); opacity: 0.35; transform: rotate(40deg); }
+  #wp2 .headline { position: absolute; right: 96px; bottom: 150px; text-align: right; color: var(--undergrowth); font-weight: 1000; font-size: 64px; line-height: 1.12; letter-spacing: -0.015em; }
+  #wp2 .tag { position: absolute; right: 96px; bottom: 76px; color: var(--terracotta); font-size: 30px; }
+  #wp2 .lockup { right: 96px; top: 80px; width: 320px; background: var(--canopy); }
+
+  /* ---- WP3: canopy pattern. Tiled white clovers on Canopy ---- */
+  #wp3 { background: var(--canopy); }
+  #wp3 .tile { background: #FFFFFF; opacity: 0.10; }
+  #wp3 .lockup { left: 50%; transform: translateX(-50%); top: 88px; width: 340px; background: #FFFFFF; opacity: 0.95; }
+  #wp3 .tag { position: absolute; left: 50%; transform: translateX(-50%); bottom: 60px; color: var(--undergrowth); font-size: 40px; }
+
+  /* ---- WP4: moss monolith. Giant ghost wordmark off the bottom ---- */
+  #wp4 { background: linear-gradient(180deg, var(--moss) 0%, #0B3D1A 78%, var(--undergrowth) 100%); }
+  #wp4 .ghost { width: 3400px; height: 683px; left: -220px; bottom: -230px; background: rgba(255,255,255,0.09); }
+  #wp4 .ghost2 { width: 1500px; height: 1500px; right: -520px; top: -560px; background: rgba(255,255,255,0.06); transform: rotate(18deg); }
+  #wp4 .lockup { left: 84px; top: 76px; width: 300px; background: var(--snow); }
+  #wp4 .tag { position: absolute; right: 84px; top: 92px; color: var(--sprout); font-size: 30px; }
+
+  /* ---- WP5: puffy playground. Cloud bg, mascot corner, headline ---- */
+  #wp5 { background: var(--cloud); }
+  #wp5 img.puffy { position: absolute; right: 120px; bottom: -60px; width: 640px; transform: rotate(-4deg); }
+  #wp5 .headline { position: absolute; left: 110px; bottom: 120px; font-weight: 1000; font-size: 88px; line-height: 1.08; letter-spacing: -0.015em; color: var(--pitch); }
+  #wp5 .headline .green { color: var(--canopy); }
+  #wp5 .tag { position: absolute; right: 110px; top: 84px; color: var(--terracotta); font-size: 30px; }
+  #wp5 .lockup { left: 110px; top: 84px; width: 300px; background: var(--canopy); }
+  #wp5 .blob { width: 1300px; height: 1300px; left: -520px; top: -620px; background: var(--canopy); opacity: 0.08; transform: rotate(-20deg); }
+
+  /* ---- WP6: sprout duotone. Dark, twin clovers off right edge ---- */
+  #wp6 { background: var(--undergrowth); }
+  #wp6 .back { width: 1850px; height: 1850px; right: -880px; top: -380px; background: var(--moss); transform: rotate(-18deg); }
+  #wp6 .front { width: 1400px; height: 1400px; right: -860px; top: 160px; background: var(--sprout); transform: rotate(14deg); }
+  #wp6 .lockup { left: 84px; bottom: 76px; width: 300px; background: var(--snow); opacity: 0.92; }
+  #wp6 .tag { position: absolute; left: 84px; top: 76px; color: var(--terracotta); font-size: 30px; }
+</style>
+</head>
+<body>
+
+<div class="wp" id="wp1">
+  <div class="clover big"></div>
+  <div class="clover peek"></div>
+  <div class="lockup"></div>
+  <div class="mono tag">//revnu.app</div>
+  <div class="grain"></div>
+</div>
+
+<div class="wp" id="wp2">
+  <div class="clover big"></div>
+  <div class="clover corner"></div>
+  <div class="lockup"></div>
+  <div class="headline">AI that sells your<br>software for you.</div>
+  <div class="mono tag">//revnu.app</div>
+</div>
+
+<div class="wp" id="wp3">
+  <div id="tiles"></div>
+  <div class="lockup"></div>
+  <div class="mono tag">//revnu.app</div>
+  <div class="grain"></div>
+</div>
+
+<div class="wp" id="wp4">
+  <div class="clover ghost2"></div>
+  <div class="wordmark-mask ghost"></div>
+  <div class="lockup"></div>
+  <div class="mono tag">//revnu.app</div>
+  <div class="grain"></div>
+</div>
+
+<div class="wp" id="wp5">
+  <div class="clover blob"></div>
+  <img class="puffy" src="puffy-tie.png">
+  <div class="headline">You build it.<br><span class="green">Revnu sells it.</span></div>
+  <div class="mono tag">//revnu.app</div>
+  <div class="lockup"></div>
+</div>
+
+<div class="wp" id="wp6">
+  <div class="clover back"></div>
+  <div class="clover front"></div>
+  <div class="lockup"></div>
+  <div class="mono tag">//revnu.app</div>
+  <div class="grain"></div>
+</div>
+
+<script>
+  document.body.dataset.wp = (location.hash || '#wp1').slice(1);
+
+  // WP3 tile grid: staggered clovers, alternating rotation
+  const tiles = document.getElementById('tiles');
+  const S = 230, GX = 420, GY = 380;
+  for (let r = -1; r < 6; r++) {
+    for (let c = -1; c < 8; c++) {
+      const d = document.createElement('div');
+      d.className = 'clover tile';
+      d.style.width = d.style.height = S + 'px';
+      const offset = (r % 2 === 0) ? 0 : GX / 2;
+      d.style.left = (c * GX + offset) + 'px';
+      d.style.top = (r * GY + 40) + 'px';
+      d.style.transform = 'rotate(' + ((r + c) % 2 ? 18 : -12) + 'deg)';
+      tiles.appendChild(d);
+    }
+  }
+</script>
+</body>
+</html>
