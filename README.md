@@ -1,6 +1,6 @@
-# Revnu — New Tab for Chrome
+# Revnu, New Tab for Chrome
 
-**By [Revnu](https://revnu.com) — AI growth agents for startups. AI that sells your software for you.**
+**By [Revnu](https://revnu.com), AI growth agents for startups. AI that sells your software for you.**
 
 [revnu.com](https://revnu.com) · [Chrome extension] · Manifest V3 · No tracking, no accounts, works offline
 
@@ -62,11 +62,11 @@ done
 ## Notes
 
 - Search uses `chrome.search.query`, i.e. whatever your default engine is; falls back to Google outside an extension context.
-- Fonts (DM Sans / DM Mono, latin subsets) are bundled in `fonts/` — no network calls at all.
+- Fonts (DM Sans / DM Mono, latin subsets) are bundled in `fonts/`, no network calls at all.
 
 ## Chrome Web Store
 
-`revnu-extension.zip` in the repo root is the upload-ready package. Listing copy, SEO/backlink notes, promo tiles and screenshots live in `store-assets/` — see [STORE-LISTING.md](store-assets/STORE-LISTING.md). Rebuild the zip after changes with:
+`revnu-extension.zip` in the repo root is the upload-ready package. Listing copy, SEO/backlink notes, promo tiles and screenshots live in `store-assets/`, see [STORE-LISTING.md](store-assets/STORE-LISTING.md). Rebuild the zip after changes with:
 
 ```sh
 zip -rq revnu-extension.zip manifest.json newtab.html newtab.css newtab.js fonts.css fonts icons wallpapers assets/clover.png
